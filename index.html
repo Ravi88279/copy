@@ -3,92 +3,218 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Affinity Altitude Accurate | Professional Accounting Services</title>
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/animations.css">
+    <title>Affinity Altitude Accumate - Professional Accounting Services</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #2c3e50;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .logo span {
+            color: #3498db;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: #2c3e50;
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <a href="index.html" class="logo">Affinity Altitude Accurate</a>
-            <div class="menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
+    <header class="header animate">
+        <nav class="nav-container">
+            <div class="logo">
+                Affinity Altitude <span>Accumate</span>
             </div>
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="contact.html" class="cta-button">Get a Quote</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#quote" class="cta-button">Get a Quote</a></li>
             </ul>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
-    <!-- Hero Section -->
-    <section class="hero animate-fadeIn">
-        <div class="container">
+    <main>
+        <section class="hero animate" style="animation-delay: 0.2s;">
             <h1>Professional Accounting & Bookkeeping Services</h1>
-            <p class="subtitle">Financial Solutions for Your Business</p>
-            <div class="cta-group">
-                <a href="services.html" class="cta-button">Our Services</a>
-                <a href="contact.html" class="cta-button secondary">Contact Us</a>
+            <p>Financial Solutions for Your Business</p>
+            <div class="cta-buttons" style="margin-top: 2rem;">
+                <a href="#services" class="cta-button">Our Services</a>
+                <a href="#contact" class="cta-button secondary">Contact Us</a>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Services Preview -->
-    <section class="services-preview">
-        <div class="container">
-            <h2 class="section-title">Our Featured Services</h2>
-            <div class="services-grid">
-                <div class="service-card animate-slideUp">
-                    <i class="fas fa-calculator"></i>
-                    <h3>Bookkeeping</h3>
-                    <p>Accurate financial record keeping for your business.</p>
-                </div>
-                <div class="service-card animate-slideUp" style="animation-delay: 0.2s;">
-                    <i class="fas fa-file-invoice-dollar"></i>
-                    <h3>Tax Preparation</h3>
-                    <p>Expert tax filing and compliance services.</p>
-                </div>
-                <div class="service-card animate-slideUp" style="animation-delay: 0.4s;">
-                    <i class="fas fa-chart-line"></i>
-                    <h3>Financial Analysis</h3>
-                    <p>Strategic insights for business growth.</p>
-                </div>
+        <section class="services-grid animate" style="animation-delay: 0.4s;">
+            <div class="service-card">
+                <h3>Bookkeeping Services</h3>
+                <ul class="service-features">
+                    <li><i class="fas fa-check-circle"></i> Daily financial tracking</li>
+                    <li><i class="fas fa-check-circle"></i> Bank reconciliations</li>
+                    <li><i class="fas fa-check-circle"></i> Financial reporting</li>
+                </ul>
             </div>
-        </div>
-    </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
+            <div class="service-card">
+                <h3>Tax Services</h3>
+                <ul class="service-features">
+                    <li><i class="fas fa-check-circle"></i> Tax preparation</li>
+                    <li><i class="fas fa-check-circle"></i> Compliance checks</li>
+                    <li><i class="fas fa-check-circle"></i> Strategic planning</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="contact-section animate" style="animation-delay: 0.6s;">
+            <h2>Get In Touch With Our Team</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <p>+91 9274200379</p>
                 </div>
-                <div class="footer-section">
-                    <h3>Contact Info</h3>
-                    <p><i class="fas fa-phone"></i> +91 9274520379</p>
-                    <p><i class="fas fa-envelope"></i> info@affinityaltitudeservices.com</p>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <p>info@affinityaltitudeservices.com</p>
                 </div>
             </div>
-            <div class="copyright">
-                <p>&copy; 2023 Affinity Altitude Accurate. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
             </div>
-        </div>
+        </section>
+    </main>
+
+    <footer class="footer animate" style="animation-delay: 0.8s;">
+        <p>&copy; 2023 Affinity Altitude Accumate. All rights reserved.</p>
+        <p>Financial Excellence</p>
     </footer>
-
-    <script src="scripts/main.js"></script>
 </body>
 </html>
