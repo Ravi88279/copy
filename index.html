@@ -381,110 +381,7 @@
             </div>
         </section>
 
-        <section class="services-section">
-            <div class="section-title animate delay-1">
-                <h2>Our Professional Services</h2>
-                <p>Comprehensive financial solutions tailored to meet the needs of your business</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card animate delay-2">
-                    <div class="service-icon">
-                        <i class="fas fa-calculator"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3>Bookkeeping</h3>
-                        <ul>
-                            <li>Accounts and testing according to financial transactions</li>
-                            <li>Daily financial tracking and reporting</li>
-                            <li>Bank reconciliations</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="service-card animate delay-2" style="animation-delay: 0.3s;">
-                    <div class="service-icon">
-                        <i class="fas fa-file-invoice-dollar"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3>Payroll Services</h3>
-                        <ul>
-                            <li>Payment processing without cash exchange receipts</li>
-                            <li>Tax deductions and compliance</li>
-                            <li>Employee payment management</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="service-card animate delay-2" style="animation-delay: 0.4s;">
-                    <div class="service-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3>Financial Reporting</h3>
-                        <ul>
-                            <li>Consolidated accounts and statements</li>
-                            <li>Business performance analysis</li>
-                            <li>Custom reporting solutions</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="contact-section animate delay-3">
-            <h2>Get In Touch With Our Team</h2>
-            <p>Have questions about our services? Ready to get started? Our team is here to help with all your financial needs.</p>
-            
-            <div class="contact-info">
-                <div class="contact-item">
-                    <i class="fas fa-phone"></i>
-                    <p>+91 9274200379</p>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <p>info@affinityaltitudeservices.com</p>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <p>5551 New South Carolina, Financial District</p>
-                </div>
-            </div>
-
-            <div class="social-links">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer animate delay-3">
-        <p>&copy; 2023 Affinity Altitude Accumate. All rights reserved.</p>
-        <p>Financial Excellence</p>
-    </footer>
-
-    <script>
-        // Simple script to handle animations on scroll
-        document.addEventListener('DOMContentLoaded', function() {
-            const animateElements = document.querySelectorAll('.animate');
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = 1;
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            animateElements.forEach(element => {
-                observer.observe(element);
-            });
-        });
-    </script>
-</body>
-</html>
-
+       
 <!-- Add this code to your homepage (index.html) where you want the services section to appear -->
 <section class="services-section">
   <div class="container">
@@ -705,3 +602,58 @@
     }
   }
 </style>
+
+        <section class="contact-section animate delay-3">
+            <h2>Get In Touch With Our Team</h2>
+            <p>Have questions about our services? Ready to get started? Our team is here to help with all your financial needs.</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <p>+91 9274200379</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <p>info@affinityaltitudeservices.com</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>5551 New South Carolina, Financial District</p>
+                </div>
+            </div>
+
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer animate delay-3">
+        <p>&copy; 2023 Affinity Altitude Accumate. All rights reserved.</p>
+        <p>Financial Excellence</p>
+    </footer>
+
+    <script>
+        // Simple script to handle animations on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const animateElements = document.querySelectorAll('.animate');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            animateElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>
+
