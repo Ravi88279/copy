@@ -527,6 +527,189 @@
   </div>
 </section>
 
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Affinity Altitude Accumate - FAQs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        .intro {
+            margin-bottom: 30px;
+        }
+        
+        .checkbox-item {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .checkbox-item:before {
+            content: "[ ]";
+            position: absolute;
+            left: 0;
+            color: #3498db;
+            font-weight: bold;
+        }
+        
+        .contact-note {
+            font-style: italic;
+            margin-top: 5px;
+        }
+        
+        hr {
+            border: 0;
+            height: 1px;
+            background: #ddd;
+            margin: 30px 0;
+        }
+        
+        .faq-item {
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            font-weight: bold;
+            color: #2c3e50;
+            padding: 15px;
+            background-color: #f9f9f9;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s;
+        }
+        
+        .faq-question:hover {
+            background-color: #f0f0f0;
+        }
+        
+        .faq-question:after {
+            content: "▼";
+            font-size: 12px;
+            transition: transform 0.3s;
+        }
+        
+        .faq-question.active:after {
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 15px;
+            max-height: 500px;
+        }
+        
+        .contact-link {
+            color: #3498db;
+            text-decoration: none;
+        }
+        
+        .contact-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Frequently Asked Questions</h1>
+    
+    <div class="intro">
+        <p>Find answers to complete questions about our services and how we can help your business.</p>
+        
+        <div class="checkbox-item">
+            tell how questions?<br>
+            <span class="contact-note">Find a person's your answer to the PID question instead of answers.</span>
+            <a href="#contact" class="contact-link">Contact us.</a>
+        </div>
+    </div>
+    
+    <hr>
+    
+    <div class="faq-section">
+        <div class="faq-item">
+            <div class="faq-question">What services does Affinity Altitude Accumate offer?</div>
+            <div class="faq-answer">
+                As a new firm in Australia, we offer a comprehensive range of financial services including bookkeeping, accounting, taxation, business advisory, financial reporting, payroll management, and specialized services tailored to Australian business needs.
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">How can your services benefit my business?</div>
+            <div class="faq-answer">
+                Our services help you maintain accurate financial records, ensure compliance with Australian tax laws, provide insights for better decision-making, and free up your time to focus on core business activities. As a new firm, we bring fresh perspectives and innovative approaches to your financial challenges.
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">What makes Affinity Altitude Accumate different from other accounting firms?</div>
+            <div class="faq-answer">
+                As a new firm, we combine innovative approaches with solid industry expertise. We offer personalized service, transparent pricing, timely delivery, and a strong focus on building long-term relationships with clients. Our fresh perspective allows us to think outside the box to solve your financial challenges.
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">Do you provide services for both small businesses and large corporations?</div>
+            <div class="faq-answer">
+                Yes, we cater to businesses of all sizes. Our services are scalable and can be tailored to meet the specific needs of small businesses, medium enterprises, and large corporations operating in Australia.
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">How do you ensure data security and confidentiality?</div>
+            <div class="faq-answer">
+                We implement robust security measures including encrypted communication, secure cloud storage, restricted access controls, regular security audits, and strict confidentiality agreements. Your financial data is always protected with the highest level of security.
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">What accounting software do you work with?</div>
+            <div class="faq-answer">
+                We are proficient in various accounting software platforms including Xero, MYOB, QuickBooks, Reckon, and other popular solutions used in Australia. We can adapt to your existing systems or recommend the best solution for your specific needs.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentNode;
+                item.classList.toggle('active');
+                
+                // Close other open items
+                document.querySelectorAll('.faq-item').forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
 <style>
   /* About Section Styles */
   .about-section {
@@ -814,13 +997,7 @@
                 <a href="#"><i class="fab fa-instagram"></i></a>
             </div>
         </section>
-    </main>
-
-    <footer class="footer animate delay-3">
-        <p>&copy; 2023 Affinity Altitude Accumate. All rights reserved.</p>
-        <p>Financial Excellence</p>
-    </footer>
-
+        
     <script>
         // Simple script to handle animations on scroll
         document.addEventListener('DOMContentLoaded', function() {
