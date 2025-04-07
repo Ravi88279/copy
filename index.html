@@ -3,27 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Affinity Altitude Accumate - Professional Accounting Services</title>
+    <title>Affinity Altitude Accumate | Professional Accounting Services</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         /* Base Styles */
+        :root {
+            --primary-blue: #0056b3;  /* Dark blue from affinityoutsourcing */
+            --accent-blue: #007bff;    /* Bright blue from affinityoutsourcing */
+            --dark-text: #2c3e50;
+            --light-text: #6c757d;
+            --light-bg: #f8f9fa;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
         }
 
         body {
+            font-family: 'Poppins', sans-serif;
             line-height: 1.6;
-            color: #2c3e50;
+            color: var(--dark-text);
+            background-color: var(--white);
         }
 
         /* Header Styles */
         .header {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background-color: var(--white);
             padding: 1rem 2rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         .nav-container {
@@ -34,14 +51,26 @@
             margin: 0 auto;
         }
 
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #2c3e50;
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
 
-        .logo span {
-            color: #3498db;
+        .logo-img {
+            height: 50px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+
+        .logo-text span {
+            color: var(--accent-blue);
+            font-weight: 600;
         }
 
         .nav-links {
@@ -52,66 +81,215 @@
 
         .nav-links a {
             text-decoration: none;
-            color: #2c3e50;
+            color: var(--dark-text);
             font-weight: 500;
             transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-blue);
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent-blue);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .cta-button {
+            background-color: var(--accent-blue);
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            border: 2px solid var(--accent-blue);
+        }
+
+        .cta-button:hover {
+            background-color: transparent;
+            color: var(--accent-blue);
+            transform: translateY(-2px);
         }
 
         /* Hero Section */
         .hero {
+            background: linear-gradient(rgba(0, 86, 179, 0.9), rgba(0, 123, 255, 0.8)), url('https://affinityoutsourcing.net/wp-content/uploads/2023/05/affinity-outsourcing-hero-image.jpg') no-repeat center center/cover;
+            color: var(--white);
             text-align: center;
-            padding: 5rem 2rem;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 8rem 2rem;
         }
 
         .hero h1 {
             font-size: 2.8rem;
             margin-bottom: 1.5rem;
-            color: #2c3e50;
+            font-weight: 700;
         }
 
         .hero p {
             font-size: 1.2rem;
-            color: #7f8c8d;
             max-width: 800px;
-            margin: 0 auto 2rem;
+            margin: 0 auto 3rem;
+            font-weight: 300;
         }
 
-        /* Services Grid */
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+
+        .secondary-button {
+            background-color: transparent;
+            border: 2px solid var(--white);
+        }
+
+        .secondary-button:hover {
+            background-color: var(--white);
+            color: var(--primary-blue);
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 5rem 2rem;
+            background-color: var(--light-bg);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            color: var(--light-text);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            padding: 4rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .service-card {
-            background: #fff;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .service-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-icon {
+            background-color: var(--primary-blue);
+            color: white;
+            font-size: 2rem;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .service-content {
+            padding: 2rem;
+        }
+
+        .service-content h3 {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .service-content ul {
+            list-style: none;
+        }
+
+        .service-content li {
+            margin-bottom: 0.8rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .service-content li:before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--accent-blue);
         }
 
         /* Contact Section */
         .contact-section {
-            background: #2c3e50;
+            background-color: var(--primary-blue);
             color: white;
-            padding: 4rem 2rem;
+            padding: 5rem 2rem;
             text-align: center;
         }
 
         .contact-info {
             display: flex;
             justify-content: center;
-            gap: 3rem;
-            margin-bottom: 2rem;
+            gap: 4rem;
+            margin: 3rem auto;
+            max-width: 800px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-blue);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--dark-text);
+            color: white;
+            text-align: center;
+            padding: 2rem;
         }
 
         /* Animations */
@@ -127,21 +305,51 @@
         }
 
         .animate {
+            opacity: 0;
             animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.6s;
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
             .nav-links {
-                display: none;
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .hero {
+                padding: 6rem 1.5rem;
             }
 
             .hero h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
 
-            .services-grid {
-                grid-template-columns: 1fr;
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 1.5rem;
             }
         }
     </style>
@@ -149,8 +357,9 @@
 <body>
     <header class="header animate">
         <nav class="nav-container">
-            <div class="logo">
-                Affinity Altitude <span>Accumate</span>
+            <div class="logo-container">
+                <img src="https://affinityoutsourcing.net/wp-content/uploads/2023/05/affinity-outsourcing-logo.png" alt="Affinity Altitude Accumate Logo" class="logo-img">
+                <div class="logo-text">Affinity Altitude <span>Accumate</span></div>
             </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
@@ -163,37 +372,69 @@
     </header>
 
     <main>
-        <section class="hero animate" style="animation-delay: 0.2s;">
+        <section class="hero animate delay-1">
             <h1>Professional Accounting & Bookkeeping Services</h1>
-            <p>Financial Solutions for Your Business</p>
-            <div class="cta-buttons" style="margin-top: 2rem;">
+            <p>Financial Solutions for Your Business. We provide expert bookkeeping, accounting, and taxation services to help your business thrive.</p>
+            <div class="cta-buttons">
                 <a href="#services" class="cta-button">Our Services</a>
-                <a href="#contact" class="cta-button secondary">Contact Us</a>
+                <a href="#contact" class="cta-button secondary-button">Contact Us</a>
             </div>
         </section>
 
-        <section class="services-grid animate" style="animation-delay: 0.4s;">
-            <div class="service-card">
-                <h3>Bookkeeping Services</h3>
-                <ul class="service-features">
-                    <li><i class="fas fa-check-circle"></i> Daily financial tracking</li>
-                    <li><i class="fas fa-check-circle"></i> Bank reconciliations</li>
-                    <li><i class="fas fa-check-circle"></i> Financial reporting</li>
-                </ul>
+        <section class="services-section">
+            <div class="section-title animate delay-1">
+                <h2>Our Professional Services</h2>
+                <p>Comprehensive financial solutions tailored to meet the needs of your business</p>
             </div>
+            <div class="services-grid">
+                <div class="service-card animate delay-2">
+                    <div class="service-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Bookkeeping</h3>
+                        <ul>
+                            <li>Accounts and testing according to financial transactions</li>
+                            <li>Daily financial tracking and reporting</li>
+                            <li>Bank reconciliations</li>
+                        </ul>
+                    </div>
+                </div>
 
-            <div class="service-card">
-                <h3>Tax Services</h3>
-                <ul class="service-features">
-                    <li><i class="fas fa-check-circle"></i> Tax preparation</li>
-                    <li><i class="fas fa-check-circle"></i> Compliance checks</li>
-                    <li><i class="fas fa-check-circle"></i> Strategic planning</li>
-                </ul>
+                <div class="service-card animate delay-2" style="animation-delay: 0.3s;">
+                    <div class="service-icon">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Payroll Services</h3>
+                        <ul>
+                            <li>Payment processing without cash exchange receipts</li>
+                            <li>Tax deductions and compliance</li>
+                            <li>Employee payment management</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-card animate delay-2" style="animation-delay: 0.4s;">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Financial Reporting</h3>
+                        <ul>
+                            <li>Consolidated accounts and statements</li>
+                            <li>Business performance analysis</li>
+                            <li>Custom reporting solutions</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section class="contact-section animate" style="animation-delay: 0.6s;">
+        <section class="contact-section animate delay-3">
             <h2>Get In Touch With Our Team</h2>
+            <p>Have questions about our services? Ready to get started? Our team is here to help with all your financial needs.</p>
+            
             <div class="contact-info">
                 <div class="contact-item">
                     <i class="fas fa-phone"></i>
@@ -203,18 +444,43 @@
                     <i class="fas fa-envelope"></i>
                     <p>info@affinityaltitudeservices.com</p>
                 </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>5551 New South Carolina, Financial District</p>
+                </div>
             </div>
+
             <div class="social-links">
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
                 <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
             </div>
         </section>
     </main>
 
-    <footer class="footer animate" style="animation-delay: 0.8s;">
+    <footer class="footer animate delay-3">
         <p>&copy; 2023 Affinity Altitude Accumate. All rights reserved.</p>
         <p>Financial Excellence</p>
     </footer>
+
+    <script>
+        // Simple script to handle animations on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const animateElements = document.querySelectorAll('.animate');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            animateElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
 </body>
 </html>
