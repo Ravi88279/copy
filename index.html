@@ -9,10 +9,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Base Styles */
         :root {
-            --primary-blue: #0056b3;  /* Dark blue from affinityoutsourcing */
-            --accent-blue: #007bff;    /* Bright blue from affinityoutsourcing */
+            --primary-blue: #0056b3;
+            --accent-blue: #007bff;
             --dark-text: #2c3e50;
             --light-text: #6c757d;
             --light-bg: #f8f9fa;
@@ -34,7 +33,7 @@
         }
 
         /* Header Styles */
-        .header {
+        header {
             background-color: var(--white);
             padding: 1rem 2rem;
             box-shadow: var(--shadow);
@@ -73,13 +72,13 @@
             font-weight: 600;
         }
 
-        .nav-links {
+        nav ul {
             display: flex;
             gap: 2rem;
             list-style: none;
         }
 
-        .nav-links a {
+        nav a {
             text-decoration: none;
             color: var(--dark-text);
             font-weight: 500;
@@ -87,11 +86,11 @@
             position: relative;
         }
 
-        .nav-links a:hover {
+        nav a:hover {
             color: var(--accent-blue);
         }
 
-        .nav-links a:after {
+        nav a::after {
             content: '';
             position: absolute;
             width: 0;
@@ -102,7 +101,7 @@
             transition: width 0.3s;
         }
 
-        .nav-links a:hover:after {
+        nav a:hover::after {
             width: 100%;
         }
 
@@ -125,7 +124,8 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0, 86, 179, 0.9), rgba(0, 123, 255, 0.8)), url('https://affinityoutsourcing.net/wp-content/uploads/2023/05/affinity-outsourcing-hero-image.jpg') no-repeat center center/cover;
+            background: linear-gradient(rgba(0, 86, 179, 0.9), rgba(0, 123, 255, 0.8)), 
+                        url('https://affinityoutsourcing.net/wp-content/uploads/2023/05/affinity-outsourcing-hero-image.jpg') no-repeat center center/cover;
             color: var(--white);
             text-align: center;
             padding: 8rem 2rem;
@@ -185,7 +185,7 @@
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(3, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             max-width: 1200px;
             margin: 0 auto;
@@ -221,23 +221,61 @@
             margin-bottom: 1rem;
         }
 
-        .service-content ul {
-            list-style: none;
+        .service-content p {
+            color: var(--light-text);
+            line-height: 1.6;
         }
 
-        .service-content li {
-            margin-bottom: 0.8rem;
-            position: relative;
-            padding-left: 1.5rem;
+        /* FAQ Section */
+        .faq-section {
+            padding: 5rem 2rem;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .service-content li:before {
-            content: '\f00c';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            position: absolute;
-            left: 0;
-            color: var(--accent-blue);
+        .faq-item {
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            font-weight: bold;
+            color: var(--dark-text);
+            padding: 1rem;
+            background-color: #f9f9f9;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s;
+        }
+
+        .faq-question:hover {
+            background-color: #f0f0f0;
+        }
+
+        .faq-question::after {
+            content: "▼";
+            font-size: 12px;
+            transition: transform 0.3s;
+        }
+
+        .faq-question.active::after {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 1rem;
+            max-height: 500px;
         }
 
         /* Contact Section */
@@ -285,40 +323,11 @@
         }
 
         /* Footer */
-        .footer {
+        footer {
             background-color: var(--dark-text);
             color: white;
             text-align: center;
             padding: 2rem;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .animate {
-            opacity: 0;
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-
-        .delay-1 {
-            animation-delay: 0.2s;
-        }
-
-        .delay-2 {
-            animation-delay: 0.4s;
-        }
-
-        .delay-3 {
-            animation-delay: 0.6s;
         }
 
         /* Responsive Design */
@@ -328,7 +337,7 @@
                 gap: 1.5rem;
             }
 
-            .nav-links {
+            nav ul {
                 flex-direction: column;
                 gap: 1rem;
                 text-align: center;
@@ -355,638 +364,154 @@
     </style>
 </head>
 <body>
-    <header class="header animate">
-        <nav class="nav-container">
+    <header>
+        <div class="nav-container">
             <div class="logo-container">
-                <img src="images/logo.png" alt="Affinity Altitude Accumate Logo">
+                <img src="images/logo.png" alt="Affinity Altitude Accumate Logo" class="logo-img">
                 <div class="logo-text">Affinity Altitude <span>Accumate</span></div>
             </div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="#quote" class="cta-button">Get a Quote</a></li>
-            </ul>
-        </nav>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#faq">FAQs</a></li>
+                    <li><a href="#contact" class="cta-button">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <main>
-        <section class="hero animate delay-1">
+        <section class="hero">
             <h1>Professional Accounting & Bookkeeping Services</h1>
             <p>Financial Solutions for Your Business. We provide expert bookkeeping, accounting, and taxation services to help your business thrive.</p>
             <div class="cta-buttons">
                 <a href="#services" class="cta-button">Our Services</a>
-                <a href="#contact" class="cta-button secondary-button">Contact Us</a>
+                <a href="#contact" class="cta-button secondary-button">Get a Quote</a>
             </div>
         </section>
 
-       
-<!-- Add this code to your homepage (index.html) where you want the services section to appear -->
-<section class="services-section">
-  <div class="container">
-    <div class="section-header">
-      <h2>Our Services</h2>
-      <p class="section-subtitle">Financial Solutions for Your Business</p>
-      <p class="section-description">We offer a comprehensive range of accounting and bookkeeping services tailored to meet the needs of your business.</p>
-    </div>
-    
-    <div class="services-grid">
-      <!-- Service Card 1 -->
-      <div class="service-card">
-        <div class="service-icon">
-          <i class="fas fa-book"></i>
-        </div>
-        <div class="service-content">
-          <h3>Bookkeeping</h3>
-          <p>Accurate and timely recording of financial transactions to keep your books in order.</p>
-        </div>
-      </div>
-      
-      <!-- Service Card 2 -->
-      <div class="service-card">
-        <div class="service-icon">
-          <i class="fas fa-calculator"></i>
-        </div>
-        <div class="service-content">
-          <h3>Accounting</h3>
-          <p>Comprehensive accounting services to track, analyze, and report your financial information.</p>
-        </div>
-      </div>
-      
-      <!-- Service Card 3 -->
-      <div class="service-card">
-        <div class="service-icon">
-          <i class="fas fa-money-bill-wave"></i>
-        </div>
-        <div class="service-content">
-          <h3>Payroll Services</h3>
-          <p>Efficient payroll processing to ensure your employees are paid accurately and on time.</p>
-        </div>
-      </div>
-      
-      <!-- Service Card 4 -->
-      <div class="service-card">
-        <div class="service-icon">
-          <i class="fas fa-chart-line"></i>
-        </div>
-        <div class="service-content">
-          <h3>Financial Reporting</h3>
-          <p>Detailed financial reports to help you understand your business performance.</p>
-        </div>
-      </div>
-    
-    <!-- Additional Services (shown as links) -->
-     <div class="service-card">
-        <div class="service-icon">
-          <i class="fas fa-chart-line"></i>
-        </div>
-        <div class="service-content">
-          <h3>Taxation</h3>
-          <p>Expert tax preparation and planning services to optimize your tax position.</p>
-        </div>
-      </div>
-      
-      <div class="service-card">
-        <div class="service-icon">
-          <i class="fas fa-chart-line"></i>
-        </div>
-        <div class="service-content">
-          <h3>Business Advisory</h3>
-          <p>Strategic advice to help your business grow and succeed in a competitive market.</p>
-        </div>
-      </div>
-    </div>
-       
-      <div class="services-cta">
-      <a href="services.html" class="explore-button">Explore All Services</a>
-    </div>
-        
-       </div>
-    <section class="about-section">
-  <div class="container">
-    <h2 class="section-title">Professional Financial Services You Can Trust</h2>
-    
-    <div class="about-content">
-      <p class="about-description">
-        All Affinity, Affiliated Accountants, within a range from bringing them perspectives to professional accounting and bookkeeping services. While you can be mindful, our team will continue experience with innovation to serve businesses of all sizes.
-      </p>
-      
-      <div class="about-features">
-        <div class="features-list">
-          <div class="feature-item">
-            <span class="checkbox">☐</span>
-            <span>Understand internal accountants and bookkeepers</span>
-          </div>
-          <div class="feature-item">
-            <span class="checkbox">☐</span>
-            <span>Personalised various tailored regular business needs</span>
-          </div>
-          <div class="feature-item">
-            <span class="checkbox">☐</span>
-            <span>Use full structures with the hidden costs</span>
-          </div>
-          <div class="feature-item">
-            <span class="checkbox">☐</span>
-            <span>Transfer access to several components</span>
-          </div>
-          <div class="feature-item">
-            <span class="checkbox">☐</span>
-            <span>Strengthened certain communications</span>
-          </div>
-          <div class="feature-item">
-            <span class="checkbox">☐</span>
-            <span>Up-to-date with latest term guidelines</span>
-          </div>
-        </div>
-        
-        <div class="values-grid">
-          <div class="value-card">
-            <h3>Integrity</h3>
-            <p>You are in the digital retail industries and our strategy.</p>
-          </div>
-          <div class="value-card">
-            <h3>Client Focus</h3>
-            <p>Your account is a great way to carry through us into your office.</p>
-          </div>
-          <div class="value-card">
-            <h3>Excellence</h3>
-            <p>We need to understand our skills and knowledge that we have to do so.</p>
-          </div>
-          <div class="value-card">
-            <h3>Reliability</h3>
-            <p>Customer and customer service providers are responsible for their work and work in line with our business practices.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="learn-more-container">
-      <a href="about.html" class="learn-more-button">Learn More About Us</a>
-    </div>
-  </div>
-</section>
-
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Affinity Altitude Accumate - FAQs</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        h1 {
-            color: #2c3e50;
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 10px;
-        }
-        
-        .intro {
-            margin-bottom: 30px;
-        }
-        
-        .checkbox-item {
-            margin-bottom: 15px;
-            padding-left: 25px;
-            position: relative;
-        }
-        
-        .checkbox-item:before {
-            content: "[ ]";
-            position: absolute;
-            left: 0;
-            color: #3498db;
-            font-weight: bold;
-        }
-        
-        .contact-note {
-            font-style: italic;
-            margin-top: 5px;
-        }
-        
-        hr {
-            border: 0;
-            height: 1px;
-            background: #ddd;
-            margin: 30px 0;
-        }
-        
-        .faq-item {
-            margin-bottom: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            overflow: hidden;
-        }
-        
-        .faq-question {
-            font-weight: bold;
-            color: #2c3e50;
-            padding: 15px;
-            background-color: #f9f9f9;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: background-color 0.3s;
-        }
-        
-        .faq-question:hover {
-            background-color: #f0f0f0;
-        }
-        
-        .faq-question:after {
-            content: "▼";
-            font-size: 12px;
-            transition: transform 0.3s;
-        }
-        
-        .faq-question.active:after {
-            transform: rotate(180deg);
-        }
-        
-        .faq-answer {
-            padding: 0;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out, padding 0.3s ease;
-        }
-        
-        .faq-item.active .faq-answer {
-            padding: 15px;
-            max-height: 500px;
-        }
-        
-        .contact-link {
-            color: #3498db;
-            text-decoration: none;
-        }
-        
-        .contact-link:hover {
-            text-decoration: underline;
-        }
-    </style>
-</head>
-<body>
-    <h1>Frequently Asked Questions</h1>
-    
-    <div class="intro">
-        <p>Find answers to complete questions about our services and how we can help your business.</p>
-        
-        <div class="checkbox-item">
-            tell how questions?<br>
-            <span class="contact-note">Find a person's your answer to the PID question instead of answers.</span>
-            <a href="#contact" class="contact-link">Contact us.</a>
-        </div>
-    </div>
-    
-    <hr>
-    
-    <div class="faq-section">
-        <div class="faq-item">
-            <div class="faq-question">What services does Affinity Altitude Accumate offer?</div>
-            <div class="faq-answer">
-                As a new firm in Australia, we offer a comprehensive range of financial services including bookkeeping, accounting, taxation, business advisory, financial reporting, payroll management, and specialized services tailored to Australian business needs.
+        <section class="services-section" id="services">
+            <div class="section-title">
+                <h2>Our Professional Services</h2>
+                <p>Comprehensive financial solutions tailored to your business needs</p>
             </div>
-        </div>
-        
-        <div class="faq-item">
-            <div class="faq-question">How can your services benefit my business?</div>
-            <div class="faq-answer">
-                Our services help you maintain accurate financial records, ensure compliance with Australian tax laws, provide insights for better decision-making, and free up your time to focus on core business activities. As a new firm, we bring fresh perspectives and innovative approaches to your financial challenges.
-            </div>
-        </div>
-        
-        <div class="faq-item">
-            <div class="faq-question">What makes Affinity Altitude Accumate different from other accounting firms?</div>
-            <div class="faq-answer">
-                As a new firm, we combine innovative approaches with solid industry expertise. We offer personalized service, transparent pricing, timely delivery, and a strong focus on building long-term relationships with clients. Our fresh perspective allows us to think outside the box to solve your financial challenges.
-            </div>
-        </div>
-        
-        <div class="faq-item">
-            <div class="faq-question">Do you provide services for both small businesses and large corporations?</div>
-            <div class="faq-answer">
-                Yes, we cater to businesses of all sizes. Our services are scalable and can be tailored to meet the specific needs of small businesses, medium enterprises, and large corporations operating in Australia.
-            </div>
-        </div>
-        
-        <div class="faq-item">
-            <div class="faq-question">How do you ensure data security and confidentiality?</div>
-            <div class="faq-answer">
-                We implement robust security measures including encrypted communication, secure cloud storage, restricted access controls, regular security audits, and strict confidentiality agreements. Your financial data is always protected with the highest level of security.
-            </div>
-        </div>
-        
-        <div class="faq-item">
-            <div class="faq-question">What accounting software do you work with?</div>
-            <div class="faq-answer">
-                We are proficient in various accounting software platforms including Xero, MYOB, QuickBooks, Reckon, and other popular solutions used in Australia. We can adapt to your existing systems or recommend the best solution for your specific needs.
-            </div>
-        </div>
-    </div>
-
-    <script>
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const item = question.parentNode;
-                item.classList.toggle('active');
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Bookkeeping</h3>
+                        <p>Accurate and timely recording of financial transactions to keep your books in perfect order.</p>
+                    </div>
+                </div>
                 
-                // Close other open items
-                document.querySelectorAll('.faq-item').forEach(otherItem => {
-                    if (otherItem !== item && otherItem.classList.contains('active')) {
-                        otherItem.classList.remove('active');
-                    }
-                });
-            });
-        });
-    </script>
-</body>
-</html>
-<style>
-  /* About Section Styles */
-  .about-section {
-    padding: 80px 0;
-    background-color: #f8f9fa;
-  }
-  
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-  }
-  
-  .section-title {
-    text-align: center;
-    font-size: 2.2rem;
-    color: #2c3e50;
-    margin-bottom: 30px;
-  }
-  
-  .about-description {
-    text-align: center;
-    font-size: 1.1rem;
-    color: #555;
-    max-width: 800px;
-    margin: 0 auto 40px;
-    line-height: 1.6;
-  }
-  
-  .about-features {
-    display: flex;
-    gap: 40px;
-    margin-bottom: 50px;
-  }
-  
-  .features-list {
-    flex: 1;
-  }
-  
-  .feature-item {
-    margin-bottom: 15px;
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-  }
-  
-  .checkbox {
-    font-size: 1.2rem;
-    color: #3498db;
-  }
-  
-  .values-grid {
-    flex: 1;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-  
-  .value-card {
-    background: white;
-    padding: 25px;
-    border-radius: 8px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-  }
-  
-  .value-card h3 {
-    color: #3498db;
-    margin-bottom: 10px;
-    font-size: 1.3rem;
-  }
-  
-  .value-card p {
-    color: #555;
-    line-height: 1.5;
-  }
-  
-  .learn-more-container {
-    text-align: center;
-    margin-top: 30px;
-  }
-  
-  .learn-more-button {
-    display: inline-block;
-    padding: 12px 30px;
-    background-color: #3498db;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: 600;
-    transition: background-color 0.3s;
-  }
-  
-  .learn-more-button:hover {
-    background-color: #2980b9;
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .about-features {
-      flex-direction: column;
-    }
-    
-    .values-grid {
-      grid-template-columns: 1fr;
-    }
-    
-    .section-title {
-      font-size: 1.8rem;
-    }
-  }
-</style>
-   
-    
-</section>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Accounting</h3>
+                        <p>Comprehensive accounting services to track, analyze, and report your financial information.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Taxation</h3>
+                        <p>Expert tax preparation and planning services to optimize your tax position.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Financial Reporting</h3>
+                        <p>Detailed financial reports to help you understand your business performance.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Payroll Services</h3>
+                        <p>Efficient payroll processing to ensure your employees are paid accurately and on time.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Business Advisory</h3>
+                        <p>Strategic advice to help your business grow and succeed in a competitive market.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<style>
-  /* Services Section Styles */
-  .services-section {
-    padding: 80px 0;
-    background-color: #f8f9fa;
-  }
-  
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-  }
-  
-  .section-header {
-    text-align: center;
-    margin-bottom: 50px;
-  }
-  
-  .section-header h2 {
-    font-size: 2.5rem;
-    color: #2c3e50;
-    margin-bottom: 15px;
-  }
-  
-  .section-subtitle {
-    font-size: 1.5rem;
-    color: #3498db;
-    margin-bottom: 15px;
-  }
-  
-  .section-description {
-    font-size: 1.1rem;
-    color: #7f8c8d;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    margin-bottom: 40px;
-  }
-  
-  .service-card {
-    background: white;
-    border-radius: 10px;
-    padding: 30px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-  }
-  
-  .service-icon {
-    font-size: 2.5rem;
-    color: #3498db;
-    margin-bottom: 20px;
-  }
-  
-  .service-content h3 {
-    font-size: 1.5rem;
-    color: #2c3e50;
-    margin-bottom: 15px;
-  }
-  
-  .service-content p {
-    color: #7f8c8d;
-    line-height: 1.6;
-  }
-  
-  .services-cta {
-    text-align: center;
-    margin: 40px 0;
-  }
-  
-  .explore-button {
-    display: inline-block;
-    padding: 12px 30px;
-    background-color: #3498db;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: 600;
-    transition: background-color 0.3s ease;
-  }
-  
-  .explore-button:hover {
-    background-color: #2980b9;
-  }
-  
-  .additional-services {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    margin-top: 40px;
-  }
-  
-  .additional-service {
-    background: white;
-    border-radius: 10px;
-    padding: 25px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-  }
-  
-  .additional-service h4 {
-    font-size: 1.3rem;
-    color: #2c3e50;
-    margin-bottom: 15px;
-  }
-  
-  .additional-service p {
-    color: #7f8c8d;
-    margin-bottom: 15px;
-  }
-  
-  .read-more {
-    color: #3498db;
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s ease;
-  }
-  
-  .read-more:hover {
-    color: #2980b9;
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .additional-services {
-      grid-template-columns: 1fr;
-    }
-    
-    .section-header h2 {
-      font-size: 2rem;
-    }
-    
-    .section-subtitle {
-      font-size: 1.3rem;
-    }
-  }
-</style>
+        <section class="faq-section" id="faq">
+            <h2>Frequently Asked Questions</h2>
+            <p>Find answers to common questions about our services</p>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">What services does Affinity Altitude Accumate offer?</div>
+                    <div class="faq-answer">
+                        <p>We offer a comprehensive range of financial services including bookkeeping, accounting, taxation, business advisory, financial reporting, payroll management, and specialized services tailored to Australian business needs.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">How can your services benefit my business?</div>
+                    <div class="faq-answer">
+                        <p>Our services help maintain accurate financial records, ensure compliance with tax laws, provide insights for better decision-making, and free up your time to focus on core business activities.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">What makes you different from other accounting firms?</div>
+                    <div class="faq-answer">
+                        <p>We combine innovative approaches with industry expertise, offering personalized service, transparent pricing, and a strong focus on building long-term relationships with our clients.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Do you serve both small and large businesses?</div>
+                    <div class="faq-answer">
+                        <p>Yes, our services are scalable and can be tailored to meet the specific needs of businesses of all sizes, from startups to large corporations.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <section class="contact-section animate delay-3">
+        <section class="contact-section" id="contact">
             <h2>Get In Touch With Our Team</h2>
-            <p>Have questions about our services? Ready to get started? Our team is here to help with all your financial needs.</p>
+            <p>Have questions about our services? Ready to get started? Contact us today.</p>
             
             <div class="contact-info">
                 <div class="contact-item">
                     <i class="fas fa-phone"></i>
-                    <p>+91 9274200379</p>
+                    <p>+61 123 456 789</p>
                 </div>
                 <div class="contact-item">
                     <i class="fas fa-envelope"></i>
-                    <p>info@affinityaltitudeservices.com</p>
+                    <p>info@affinityaltitude.com</p>
                 </div>
                 <div class="contact-item">
                     <i class="fas fa-map-marker-alt"></i>
-                    <p>5551 New South Carolina, Financial District</p>
+                    <p>123 Business Street, Sydney, Australia</p>
                 </div>
             </div>
 
@@ -997,22 +522,49 @@
                 <a href="#"><i class="fab fa-instagram"></i></a>
             </div>
         </section>
-        
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Affinity Altitude Accumate. All rights reserved.</p>
+    </footer>
+
     <script>
-        // Simple script to handle animations on scroll
+        // FAQ Accordion Functionality
         document.addEventListener('DOMContentLoaded', function() {
-            const animateElements = document.querySelectorAll('.animate');
+            const faqQuestions = document.querySelectorAll('.faq-question');
             
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = 1;
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const item = question.parentNode;
+                    const isActive = item.classList.contains('active');
+                    
+                    // Close all items first
+                    document.querySelectorAll('.faq-item').forEach(el => {
+                        el.classList.remove('active');
+                    });
+                    
+                    // Open current if it wasn't active
+                    if (!isActive) {
+                        item.classList.add('active');
                     }
                 });
-            }, { threshold: 0.1 });
-
-            animateElements.forEach(element => {
-                observer.observe(element);
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
             });
         });
     </script>
